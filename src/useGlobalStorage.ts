@@ -1,7 +1,7 @@
 import { useSyncExternalStore } from "use-sync-external-store/shim";
-import { StorageBase } from "./StorageBase";
+import { GlobalStorage } from "./GlobalStorage";
 
-export const useStorage = <T>(storage: StorageBase<T>) => {
+export const useGlobalStorage = <T>(storage: GlobalStorage<T>) => {
   const state = useSyncExternalStore(
     storage.subscribe.bind(storage),
     storage.get.bind(storage),

@@ -1,12 +1,12 @@
 import { DependencyList, useCallback } from "react";
-import { StorageBase } from "./StorageBase";
+import { GlobalStorage } from "./GlobalStorage";
 
 interface UseStorageCallbackParams {
-  get<T>(storage: StorageBase<T>): T;
-  set<T>(storage: StorageBase<T>, data: T): void;
+  get<T>(storage: GlobalStorage<T>): T;
+  set<T>(storage: GlobalStorage<T>, data: T): void;
 }
 
-export const useStorageCallback = <T>(
+export const useGlobalStorageCallback = (
   callback: (params: UseStorageCallbackParams) => void,
   deps: DependencyList = []
 ) => {

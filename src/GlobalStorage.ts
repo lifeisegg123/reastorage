@@ -1,7 +1,7 @@
 import { DataOrUpdaterFn } from "./utils";
 import { isUpdaterFn } from "./utils";
 
-export class StorageBase<T> {
+export class GlobalStorage<T> {
   public listeners = new Set<VoidFunction>();
 
   private getInitial = false;

@@ -1,4 +1,4 @@
-import { StorageBase } from "./StorageBase";
+import { GlobalStorage } from "./GlobalStorage";
 
 type InferArray<T> = T extends Array<infer U> ? U : never;
 
@@ -6,7 +6,7 @@ function isArray<T>(value: unknown): value is Array<T> {
   return Array.isArray(value);
 }
 
-export class StorageArray<T extends Array<any>> extends StorageBase<T> {
+export class GlobalStorageArray<T extends Array<any>> extends GlobalStorage<T> {
   append(value: InferArray<T>) {
     const { data } = this;
 
