@@ -1,9 +1,9 @@
-import { GlobalStorage } from "./GlobalStorage";
+import { Reactorage } from "./Reactorage";
 import { isUpdaterFn, UpdaterFn } from "./utils";
 
 type AnyRecord = { [key: string]: any };
 
-export class GlobalStorageObject<T extends AnyRecord> extends GlobalStorage<T> {
+export class ReactorageObject<T extends AnyRecord> extends Reactorage<T> {
   append<K extends keyof T>(key: K, value: T[K] | UpdaterFn<T[K]>) {
     const { data } = this;
     const getValue = () => {

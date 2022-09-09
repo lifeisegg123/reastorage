@@ -1,5 +1,5 @@
 {
-  "name": "use-global-storage",
+  "name": "reactorage",
   "version": "0.1.0",
   "main": "dist/index.umd.js",
   "types": "dist/index.d.ts",
@@ -15,17 +15,18 @@
   "sideEffects": false,
   "repository": {
     "type": "git",
-    "url": "https://github.com/lifeisegg123/use-global-storage"
+    "url": "https://github.com/lifeisegg123/reactorage"
   },
   "author": {
     "name": "lifeisegg123",
     "email": "leejj2002@naver.com"
   },
   "bugs": {
-    "url": "https://github.com/lifeisegg123/react-query-toolkit/issues"
+    "url": "https://github.com/lifeisegg123/reactorage/issues"
   },
   "keywords": [
     "react",
+    "reactorage",
     "localStorage",
     "sessionStorage",
     "globalStorage",

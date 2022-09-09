@@ -1,4 +1,4 @@
-# use-global-storage
+# Reactorage
 
 ## introduction
 
@@ -7,7 +7,7 @@ it provides a global state management for local or session storage, classes for 
 
 ## apis
 
-### GlobalStorage
+### Reactorage
 This is a singleton class that provides global access to local or session storage.
 
 #### parameters
@@ -24,25 +24,25 @@ This is a singleton class that provides global access to local or session storag
 
 #### Example
 ```ts
-const example = new GlobalStorage('example','initialValue');
-const example2 = new GlobalStorage('example2', 2);
+const example = new Reactorage('example','initialValue');
+const example2 = new Reactorage('example2', 2);
 ```
 
-### useGlobalStorage
+### useReactorage
 This hook lets you use global storage in your application.
 It will return as the same type as `useState` hook from `react`
 
 #### parameters
 - storage
-  - **Required** `GlobalStorage`
-  - Instance of `GlobalStorage`
+  - **Required** `Reactorage`
+  - Instance of `Reactorage`
 
 #### Example
 ```tsx
-const example = new GlobalStorage('example', 0);
+const example = new Reactorage('example', 0);
 
 function ExampleComponent() {
-  const [example, setExample] = useGlobalStorage(example);
+  const [example, setExample] = useReactorage(example);
   return (
     <div>
       <button onClick={() => setExample(example + 1)}>

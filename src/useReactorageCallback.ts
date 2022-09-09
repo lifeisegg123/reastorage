@@ -1,12 +1,12 @@
 import { DependencyList, useCallback } from "react";
-import { GlobalStorage } from "./GlobalStorage";
+import { Reactorage } from "./Reactorage";
 
 interface UseStorageCallbackParams {
-  get<T>(storage: GlobalStorage<T>): T;
-  set<T>(storage: GlobalStorage<T>, data: T): void;
+  get<T>(storage: Reactorage<T>): T;
+  set<T>(storage: Reactorage<T>, data: T): void;
 }
 
-export const useGlobalStorageCallback = (
+export const useReactorageCallback = (
   callback: (params: UseStorageCallbackParams) => void,
   deps: DependencyList = []
 ) => {
