@@ -1,0 +1,26 @@
+{
+  "name": "storage",
+  "version": "0.1.0",
+  "main": "index.js",
+  "license": "MIT",
+  "packageManager": "yarn@3.2.3",
+  "sideEffects": false,
+  "scripts": {
+    "build": "yarn build:js && yarn build:dts",
+    "build:dts": "tsc --emitDeclarationOnly",
+    "build:js": "node ./esbuild.config.js"
+  },
+  "dependencies": {
+    "use-sync-external-store": "^1.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.18",
+    "@types/use-sync-external-store": "^0.0.3",
+    "esbuild": "^0.15.7",
+    "react": "^18.2.0",
+    "typescript": "^4.8.3"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  }
+}
