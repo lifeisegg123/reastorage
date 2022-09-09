@@ -292,19 +292,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"storage@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "storage@workspace:."
-  dependencies:
-    "@types/react": ^18.0.18
-    "@types/use-sync-external-store": ^0.0.3
-    esbuild: ^0.15.7
-    react: ^18.2.0
-    typescript: ^4.8.3
-    use-sync-external-store: ^1.2.0
-  languageName: unknown
-  linkType: soft
-
 "typescript@npm:^4.8.3":
   version: 4.8.3
   resolution: "typescript@npm:4.8.3"
@@ -324,6 +311,21 @@ __metadata:
   checksum: 2222d2382fb3146089b1d27ce2b55e9d1f99cc64118f1aba75809b693b856c5d3c324f052f60c75b577947fc538bc1c27bad0eb76cbdba9a63a253489504ba7e
   languageName: node
   linkType: hard
+
+"use-global-storage@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "use-global-storage@workspace:."
+  dependencies:
+    "@types/react": ^18.0.18
+    "@types/use-sync-external-store": ^0.0.3
+    esbuild: ^0.15.7
+    react: ^18.2.0
+    typescript: ^4.8.3
+    use-sync-external-store: ^1.2.0
+  peerDependencies:
+    react: ">=16.8.0"
+  languageName: unknown
+  linkType: soft
 
 "use-sync-external-store@npm:^1.2.0":
   version: 1.2.0

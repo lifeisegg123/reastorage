@@ -17,14 +17,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     ],\
     "dependencyTreeRoots": [\
       {\
-        "name": "storage",\
+        "name": "use-global-storage",\
         "reference": "workspace:."\
       }\
     ],\
     "enableTopLevelFallback": true,\
     "ignorePatternData": "(^(?:\\\\.yarn\\\\/sdks(?:\\\\/(?!\\\\.{1,2}(?:\\\\/|$))(?:(?:(?!(?:^|\\\\/)\\\\.{1,2}(?:\\\\/|$)).)*?)|$))$)",\
     "fallbackExclusionList": [\
-      ["storage", ["workspace:."]]\
+      ["use-global-storage", ["workspace:."]]\
     ],\
     "fallbackPool": [\
     ],\
@@ -38,7 +38,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["esbuild", "npm:0.15.7"],\
             ["react", "npm:18.2.0"],\
             ["typescript", "patch:typescript@npm%3A4.8.3#~builtin<compat/typescript>::version=4.8.3&hash=a1c5e5"],\
-            ["use-sync-external-store", "virtual:71ac7fba1d1af2a0908cfdc8148a59b63dcb55f5e523e68b40040432478c75a8cada18e7b9938a59d1934dfe4d610989cedf130d65f2b36a08bdef5c66c4b019#npm:1.2.0"]\
+            ["use-sync-external-store", "virtual:0bb3ed2dad9d396a7454a85671662db1bad82f7cd4dd9cd019041ba84d7867470e6d476679ad755340a562bedd6dcd0316b13401353c935f6e1634a20177a47d#npm:1.2.0"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -339,21 +339,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
-      ["storage", [\
-        ["workspace:.", {\
-          "packageLocation": "./",\
-          "packageDependencies": [\
-            ["storage", "workspace:."],\
-            ["@types/react", "npm:18.0.18"],\
-            ["@types/use-sync-external-store", "npm:0.0.3"],\
-            ["esbuild", "npm:0.15.7"],\
-            ["react", "npm:18.2.0"],\
-            ["typescript", "patch:typescript@npm%3A4.8.3#~builtin<compat/typescript>::version=4.8.3&hash=a1c5e5"],\
-            ["use-sync-external-store", "virtual:71ac7fba1d1af2a0908cfdc8148a59b63dcb55f5e523e68b40040432478c75a8cada18e7b9938a59d1934dfe4d610989cedf130d65f2b36a08bdef5c66c4b019#npm:1.2.0"]\
-          ],\
-          "linkType": "SOFT"\
-        }]\
-      ]],\
       ["typescript", [\
         ["patch:typescript@npm%3A4.8.3#~builtin<compat/typescript>::version=4.8.3&hash=a1c5e5", {\
           "packageLocation": "./.yarn/cache/typescript-patch-4d824bf818-2222d2382f.zip/node_modules/typescript/",\
@@ -361,6 +346,21 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["typescript", "patch:typescript@npm%3A4.8.3#~builtin<compat/typescript>::version=4.8.3&hash=a1c5e5"]\
           ],\
           "linkType": "HARD"\
+        }]\
+      ]],\
+      ["use-global-storage", [\
+        ["workspace:.", {\
+          "packageLocation": "./",\
+          "packageDependencies": [\
+            ["use-global-storage", "workspace:."],\
+            ["@types/react", "npm:18.0.18"],\
+            ["@types/use-sync-external-store", "npm:0.0.3"],\
+            ["esbuild", "npm:0.15.7"],\
+            ["react", "npm:18.2.0"],\
+            ["typescript", "patch:typescript@npm%3A4.8.3#~builtin<compat/typescript>::version=4.8.3&hash=a1c5e5"],\
+            ["use-sync-external-store", "virtual:0bb3ed2dad9d396a7454a85671662db1bad82f7cd4dd9cd019041ba84d7867470e6d476679ad755340a562bedd6dcd0316b13401353c935f6e1634a20177a47d#npm:1.2.0"]\
+          ],\
+          "linkType": "SOFT"\
         }]\
       ]],\
       ["use-sync-external-store", [\
@@ -371,10 +371,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:71ac7fba1d1af2a0908cfdc8148a59b63dcb55f5e523e68b40040432478c75a8cada18e7b9938a59d1934dfe4d610989cedf130d65f2b36a08bdef5c66c4b019#npm:1.2.0", {\
-          "packageLocation": "./.yarn/__virtual__/use-sync-external-store-virtual-28c5187997/0/cache/use-sync-external-store-npm-1.2.0-44f75d2564-5c639e0f8d.zip/node_modules/use-sync-external-store/",\
+        ["virtual:0bb3ed2dad9d396a7454a85671662db1bad82f7cd4dd9cd019041ba84d7867470e6d476679ad755340a562bedd6dcd0316b13401353c935f6e1634a20177a47d#npm:1.2.0", {\
+          "packageLocation": "./.yarn/__virtual__/use-sync-external-store-virtual-3aa15a7a92/0/cache/use-sync-external-store-npm-1.2.0-44f75d2564-5c639e0f8d.zip/node_modules/use-sync-external-store/",\
           "packageDependencies": [\
-            ["use-sync-external-store", "virtual:71ac7fba1d1af2a0908cfdc8148a59b63dcb55f5e523e68b40040432478c75a8cada18e7b9938a59d1934dfe4d610989cedf130d65f2b36a08bdef5c66c4b019#npm:1.2.0"],\
+            ["use-sync-external-store", "virtual:0bb3ed2dad9d396a7454a85671662db1bad82f7cd4dd9cd019041ba84d7867470e6d476679ad755340a562bedd6dcd0316b13401353c935f6e1634a20177a47d#npm:1.2.0"],\
             ["@types/react", "npm:18.0.18"],\
             ["react", "npm:18.2.0"]\
           ],\

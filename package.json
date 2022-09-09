@@ -4,6 +4,12 @@
   "main": "dist/index.umd.js",
   "types": "dist/index.d.ts",
   "module": "dist/index.mjs",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    }
+  },
   "license": "MIT",
   "packageManager": "yarn@3.2.3",
   "sideEffects": false,
@@ -15,6 +21,20 @@
     "name": "lifeisegg123",
     "email": "leejj2002@naver.com"
   },
+  "bugs": {
+    "url": "https://github.com/lifeisegg123/react-query-toolkit/issues"
+  },
+  "keywords": [
+    "react",
+    "localStorage",
+    "sessionStorage",
+    "globalStorage",
+    "global-state",
+    "state-management"
+  ],
+  "files": [
+    "dist/"
+  ],
   "scripts": {
     "build": "yarn build:js && yarn build:dts",
     "build:dts": "tsc --emitDeclarationOnly",
