@@ -1,7 +1,7 @@
 import { DataOrUpdaterFn } from "./utils";
 import { isUpdaterFn } from "./utils";
 
-export class Reactorage<T> {
+export class Reastorage<T> {
   public listeners = new Set<VoidFunction>();
 
   private getInitial = false;

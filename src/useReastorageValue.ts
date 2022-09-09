@@ -1,7 +1,7 @@
 import { useSyncExternalStore } from "use-sync-external-store/shim";
-import { Reactorage } from "./Reactorage";
+import { Reastorage } from "./Reastorage";
 
-export const useReactorageValue = <T>(storage: Reactorage<T>) => {
+export const useReastorageValue = <T>(storage: Reastorage<T>) => {
   return useSyncExternalStore(
     storage.subscribe.bind(storage),
     storage.get.bind(storage),

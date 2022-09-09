@@ -1,9 +1,9 @@
-import { Reactorage } from "./Reactorage";
+import { Reastorage } from "./Reastorage";
 import { isUpdaterFn, UpdaterFn } from "./utils";
 
 type AnyRecord = { [key: string]: any };
 
-export class ReactorageObject<T extends AnyRecord> extends Reactorage<T> {
+export class ReastorageObject<T extends AnyRecord> extends Reastorage<T> {
   append<K extends keyof T>(key: K, value: T[K] | UpdaterFn<T[K]>) {
     const { data } = this;
     const getValue = () => {

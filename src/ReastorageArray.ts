@@ -1,4 +1,4 @@
-import { Reactorage } from "./Reactorage";
+import { Reastorage } from "./Reastorage";
 
 type InferArray<T> = T extends Array<infer U> ? U : never;
 
@@ -6,7 +6,7 @@ function isArray<T>(value: unknown): value is Array<T> {
   return Array.isArray(value);
 }
 
-export class ReactorageArray<T extends Array<any>> extends Reactorage<T> {
+export class ReastorageArray<T extends Array<any>> extends Reastorage<T> {
   append(value: InferArray<T>) {
     const { data } = this;
 

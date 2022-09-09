@@ -292,9 +292,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"reactorage@workspace:.":
+"reastorage@workspace:.":
   version: 0.0.0-use.local
-  resolution: "reactorage@workspace:."
+  resolution: "reastorage@workspace:."
   dependencies:
     "@types/react": ^18.0.18
     "@types/use-sync-external-store": ^0.0.3

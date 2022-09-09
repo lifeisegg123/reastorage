@@ -1,5 +1,5 @@
 {
-  "name": "reactorage",
+  "name": "reastorage",
   "version": "0.1.0",
   "main": "dist/index.umd.js",
   "types": "dist/index.d.ts",
@@ -15,18 +15,18 @@
   "sideEffects": false,
   "repository": {
     "type": "git",
-    "url": "https://github.com/lifeisegg123/reactorage"
+    "url": "https://github.com/lifeisegg123/reastorage"
   },
   "author": {
     "name": "lifeisegg123",
     "email": "leejj2002@naver.com"
   },
   "bugs": {
-    "url": "https://github.com/lifeisegg123/reactorage/issues"
+    "url": "https://github.com/lifeisegg123/reastorage/issues"
   },
   "keywords": [
     "react",
-    "reactorage",
+    "reastorage",
     "localStorage",
     "sessionStorage",
     "globalStorage",
