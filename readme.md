@@ -1,4 +1,6 @@
 # Reactorage
+[![codecov](https://codecov.io/gh/lifeisegg123/reastorage/branch/main/graph/badge.svg?token=YQ37N8E2R3)](https://codecov.io/gh/lifeisegg123/reastorage)
+[![](https://img.shields.io/bundlephobia/minzip/reastorage)](https://bundlephobia.com/package/reastorage)
 
 ## introduction
 
