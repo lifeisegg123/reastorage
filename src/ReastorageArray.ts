@@ -6,23 +6,24 @@ function isArray<T>(value: unknown): value is Array<T> {
   return Array.isArray(value);
 }
 
+type RemoveValOrFn<T> = ((v: InferArray<T>) => boolean) | InferArray<T>;
+
 export class ReastorageArray<T extends Array<any>> extends Reastorage<T> {
   append(value: InferArray<T>) {
     const { data } = this;
 
-    if (data) {
-      if (!isArray(data)) throw new Error("typeof value is not an array");
-      this.set([...data, value] as T);
-    } else {
-      this.set([value] as T);
-    }
+    if (!isArray(data)) throw new Error("typeof value is not an array");
+    this.set([...data, value] as T);
   }
 
-  remove(func: (v: InferArray<T>) => boolean) {
+  remove(valOrFn: RemoveValOrFn<T>) {
     const { data } = this;
 
-    if (!data) return;
+    const value =
+      typeof valOrFn === "function"
+        ? data.filter(valOrFn)
+        : data.filter((v) => v !== valOrFn);
 
-    this.set(data.filter(func) as T);
+    this.set(value as T);
   }
 }
