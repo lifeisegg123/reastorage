@@ -3,7 +3,7 @@ import { useResetReastorage } from "../src/useResetReastorage";
 import { renderHook, act } from "@testing-library/react";
 
 describe("useResetReastorage", () => {
-  it("should get value", () => {
+  it("should reset value", () => {
     const initialValue = 1;
     const reastorage = new Reastorage("test", initialValue);
     const { result } = renderHook(() => useResetReastorage(reastorage));
