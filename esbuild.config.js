@@ -5,7 +5,7 @@ const options = {
   entryPoints: ["./src/index.ts"],
   minify: true,
   target: "es2015",
-  external: ["react"],
+  external: ["react", "use-sync-external-store"],
   sourcemap: true,
   outdir: "./dist",
   bundle: true,
