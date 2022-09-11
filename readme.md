@@ -5,7 +5,7 @@
 ## introduction
 
 This library will help you use local & session storage in your application.
-it provides a global state management for local or session storage, classes for Object, Array and even custom classes.
+It provides a global state management for local or session storage, utils for Object, Array.
 
 ## apis
 
@@ -26,8 +26,10 @@ This is a function that provides global access to local or session storage.
 
 #### Example
 ```ts
-const example = reastorage('example','initialValue');
-const example2 = reastorage('example2', 2);
+const example = reastorage('example', 'initialValue');
+example.get(); // 'initialValue'
+example.set('newValue');
+example.get(); // 'newValue'
 ```
 
 ### useReastorage
@@ -44,14 +46,85 @@ It will return as the same type as `useState` hook from `react`
 const example = reastorage('example', 0);
 
 function ExampleComponent() {
-  const [example, setExample] = useReactorage(example);
+  const [exampleValue, setExampleValue] = useReactorage(example);
   return (
     <div>
-      <button onClick={() => setExample(example + 1)}>
+      <button onClick={() => setExampleValue(example + 1)}>
         increment
       </button>
-      <p>{example}</p>
+      <p>{exampleValue}</p>
     </div>
   );
 }
 ```
+
+### useReastorageValue
+If you just want to subscribe value of the `Reastorage`, this hook will help you.
+
+#### parameters
+- storage
+  - **Required** `Reastorage`
+  - Instance of `Reastorage`
+
+#### Example
+```tsx
+const example = reastorage('example', 0);
+
+function ExampleComponent() {
+  const exampleValue = useReastorageValue(example);
+  return (
+    <div>
+      <p>{exampleValue}</p>
+    </div>
+  );
+}
+```
+
+### useSetReastorage
+If you just want to update value of the `Reastorage`, this hook will help you.
+
+#### parameters
+- storage
+  - **Required** `Reastorage`
+  - Instance of `Reastorage`
+
+#### Example
+```tsx
+const example = reastorage('example', 0);
+
+function ExampleComponent() {
+  const setExampleValue = useSetReastorage(example);
+  return (
+    <div>
+      <button onClick={() => setExampleValue(prev => prev + 1)}>
+        increment
+      </button>
+    </div>
+  );
+}
+```
+
+### useResetReastorage
+If you just want to reset value of the `Reastorage` to initialValue, this hook will help you.
+
+#### parameters
+- storage
+  - **Required** `Reastorage`
+  - Instance of `Reastorage`
+
+#### Example
+```tsx
+const example = reastorage('example', 0);
+
+function ExampleComponent() {
+  const resetExampleValue = useResetReastorage(example);
+  return (
+    <div>
+      <button onClick={() => resetExampleValue()}>
+        reset
+      </button>
+    </div>
+  );
+}
+```
+
