@@ -1,6 +1,5 @@
 import { ReastorageInterface } from "./ReastorageInterface";
-import { DataOrUpdaterFn } from "./utils";
-import { isUpdaterFn } from "./utils";
+import { DataOrUpdaterFn, isUpdaterFn } from "./utils";
 
 export const reastorage = <T>(
   key: string,

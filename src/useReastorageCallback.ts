@@ -1,5 +1,4 @@
 import { DependencyList, useCallback } from "react";
-import { reastorage } from "./reastorage";
 import { ReastorageInterface } from "./ReastorageInterface";
 import { DataOrUpdaterFn } from "./utils";
 
