@@ -1,5 +1,5 @@
-import { Reastorage } from "./Reastorage";
+import { ReastorageInterface } from "./ReastorageInterface";
 
-export const useResetReastorage = <T>(storage: Reastorage<T>) => {
-  return storage.reset.bind(storage);
+export const useResetReastorage = <T>(storage: ReastorageInterface<T>) => {
+  return storage.reset;
 };

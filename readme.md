@@ -1,4 +1,4 @@
-# Reactorage
+# Reastorage
 [![codecov](https://codecov.io/gh/lifeisegg123/reastorage/branch/main/graph/badge.svg?token=YQ37N8E2R3)](https://codecov.io/gh/lifeisegg123/reastorage)
 [![](https://img.shields.io/bundlephobia/minzip/reastorage)](https://bundlephobia.com/package/reastorage)
 
@@ -9,8 +9,8 @@ it provides a global state management for local or session storage, classes for 
 
 ## apis
 
-### Reactorage
-This is a singleton class that provides global access to local or session storage.
+### reastorage
+This is a function that provides global access to local or session storage.
 
 #### parameters
 - key
@@ -26,22 +26,22 @@ This is a singleton class that provides global access to local or session storag
 
 #### Example
 ```ts
-const example = new Reactorage('example','initialValue');
-const example2 = new Reactorage('example2', 2);
+const example = reastorage('example','initialValue');
+const example2 = reastorage('example2', 2);
 ```
 
-### useReactorage
+### useReastorage
 This hook lets you use global storage in your application.
 It will return as the same type as `useState` hook from `react`
 
 #### parameters
 - storage
-  - **Required** `Reactorage`
-  - Instance of `Reactorage`
+  - **Required** `Reastorage`
+  - Instance of `Reastorage`
 
 #### Example
 ```tsx
-const example = new Reactorage('example', 0);
+const example = reastorage('example', 0);
 
 function ExampleComponent() {
   const [example, setExample] = useReactorage(example);

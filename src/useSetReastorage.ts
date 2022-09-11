@@ -1,5 +1,5 @@
-import { Reastorage } from "./Reastorage";
+import { ReastorageInterface } from "./ReastorageInterface";
 
-export const useSetReastorage = <T>(storage: Reastorage<T>) => {
-  return storage.set.bind(storage);
+export const useSetReastorage = <T>(storage: ReastorageInterface<T>) => {
+  return storage.set;
 };

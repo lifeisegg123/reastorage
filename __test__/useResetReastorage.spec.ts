@@ -1,17 +1,17 @@
-import { Reastorage } from "../src/Reastorage";
+import { reastorage } from "../src/reastorage";
 import { useResetReastorage } from "../src/useResetReastorage";
 import { renderHook, act } from "@testing-library/react";
 
 describe("useResetReastorage", () => {
   it("should reset value", () => {
     const initialValue = 1;
-    const reastorage = new Reastorage("test", initialValue);
-    const { result } = renderHook(() => useResetReastorage(reastorage));
-    reastorage.set(2);
-    expect(reastorage.get()).toEqual(2);
+    const store = reastorage("test", initialValue);
+    const { result } = renderHook(() => useResetReastorage(store));
+    store.set(2);
+    expect(store.get()).toEqual(2);
     act(() => {
       result.current();
     });
-    expect(reastorage.get()).toEqual(initialValue);
+    expect(store.get()).toEqual(initialValue);
   });
 });

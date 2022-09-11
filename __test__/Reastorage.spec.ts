@@ -1,53 +1,53 @@
-import { Reastorage } from "../src/Reastorage";
+import { reastorage } from "../src/reastorage";
 
-describe("Reastorage", () => {
+describe("reastorage", () => {
   it("should get initialValue", () => {
     const initialValue = 1;
-    const reastorage = new Reastorage("test", initialValue);
-    expect(reastorage.getInitialValue()).toEqual(initialValue);
-    expect(reastorage.get()).toEqual(initialValue);
+    const store = reastorage("test", initialValue);
+    expect(store.getInitialValue()).toEqual(initialValue);
+    expect(store.get()).toEqual(initialValue);
   });
 
   it("should update value", () => {
     const initialValue = 1;
-    const reastorage = new Reastorage("test2", initialValue);
-    reastorage.set(2);
-    expect(reastorage.get()).toEqual(2);
+    const store = reastorage("test2", initialValue);
+    store.set(2);
+    expect(store.get()).toEqual(2);
   });
 
   it("should update value with updater function", () => {
     const initialValue = 2;
-    const reastorage = new Reastorage("test2", initialValue);
-    reastorage.set((v) => v * 2);
-    expect(reastorage.get()).toEqual(4);
+    const store = reastorage("test2", initialValue);
+    store.set((v) => v * 2);
+    expect(store.get()).toEqual(4);
   });
 
   it("should reset value", () => {
     const initialValue = 1;
-    const reastorage = new Reastorage("test2", initialValue);
-    reastorage.set(2);
-    expect(reastorage.get()).toEqual(2);
-    reastorage.reset();
-    expect(reastorage.get()).toEqual(initialValue);
+    const store = reastorage("test2", initialValue);
+    store.set(2);
+    expect(store.get()).toEqual(2);
+    store.reset();
+    expect(store.get()).toEqual(initialValue);
   });
 
   it("should call subscribe", () => {
     const initialValue = 1;
-    const reastorage = new Reastorage("test2", initialValue);
+    const store = reastorage("test2", initialValue);
     const spy = jest.fn();
-    reastorage.subscribe(spy);
-    reastorage.set(2);
-    reastorage.set(4);
+    store.subscribe(spy);
+    store.set(2);
+    store.set(4);
     expect(spy).toHaveBeenCalledTimes(2);
   });
 
   it("should call unsubscribe", () => {
     const initialValue = 1;
-    const reastorage = new Reastorage("test2", initialValue);
+    const store = reastorage("test2", initialValue);
     const spy = jest.fn();
-    const unsubscribe = reastorage.subscribe(spy);
+    const unsubscribe = store.subscribe(spy);
     unsubscribe();
-    reastorage.set(2);
+    store.set(2);
     expect(spy).not.toHaveBeenCalled();
   });
 });
