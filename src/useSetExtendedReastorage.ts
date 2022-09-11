@@ -1,5 +1,5 @@
-import { ReastorageArray } from "./ReastorageArray";
-import { AnyRecord, ReastorageObject } from "./ReastorageObject";
+import { ReastorageArray } from "./reastorageArray";
+import { AnyRecord, ReastorageObject } from "./reastorageObject";
 
 type Append<
   T extends ReastorageArray<Array<any>> | ReastorageObject<AnyRecord>
