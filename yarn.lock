@@ -1145,6 +1145,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/jest@npm:^29.0.1":
+  version: 29.0.1
+  resolution: "@types/jest@npm:29.0.1"
+  dependencies:
+    expect: ^29.0.0
+    pretty-format: ^29.0.0
+  checksum: efd30357c290b5d385382302fae927885f2a9bde0aa45d4c7f970fa6e6d750df83edef73f16d1e9a005e08a5bcd7c6ff56a43f5ac2534a517df9ad1e44dd30c4
+  languageName: node
+  linkType: hard
+
 "@types/jsdom@npm:^20.0.0":
   version: 20.0.0
   resolution: "@types/jsdom@npm:20.0.0"
@@ -2320,7 +2330,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expect@npm:^29.0.3":
+"expect@npm:^29.0.0, expect@npm:^29.0.3":
   version: 29.0.3
   resolution: "expect@npm:29.0.3"
   dependencies:
@@ -3868,7 +3878,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pretty-format@npm:^29.0.3":
+"pretty-format@npm:^29.0.0, pretty-format@npm:^29.0.3":
   version: 29.0.3
   resolution: "pretty-format@npm:29.0.3"
   dependencies:
@@ -3980,6 +3990,7 @@ __metadata:
     "@swc/core": ^1.2.249
     "@swc/jest": ^0.2.22
     "@testing-library/react": ^13.4.0
+    "@types/jest": ^29.0.1
     "@types/react": ^18.0.18
     "@types/use-sync-external-store": ^0.0.3
     esbuild: ^0.15.7

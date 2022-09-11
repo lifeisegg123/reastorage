@@ -1,10 +1,11 @@
 import { DependencyList, useCallback } from "react";
-import { Reastorage } from "./Reastorage";
+import { reastorage } from "./reastorage";
+import { ReastorageInterface } from "./ReastorageInterface";
 import { DataOrUpdaterFn } from "./utils";
 
 interface UseStorageCallbackParams {
-  get<T>(storage: Reastorage<T>): T;
-  set<T>(storage: Reastorage<T>, data: DataOrUpdaterFn<T>): void;
+  get<T>(storage: ReastorageInterface<T>): T;
+  set<T>(storage: ReastorageInterface<T>, data: DataOrUpdaterFn<T>): void;
 }
 
 export const useReastorageCallback = (

@@ -36,6 +36,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@swc/core", "npm:1.2.249"],\
             ["@swc/jest", "virtual:965bcc1ec742f2f0072bc65d3f7a98f274f7c8b2da78bc2183f580d489add95c978db5cae27f5f8821960c8a609013a6ab6a28fca0d6e5bce1185eed5b66c1bd#npm:0.2.22"],\
             ["@testing-library/react", "virtual:965bcc1ec742f2f0072bc65d3f7a98f274f7c8b2da78bc2183f580d489add95c978db5cae27f5f8821960c8a609013a6ab6a28fca0d6e5bce1185eed5b66c1bd#npm:13.4.0"],\
+            ["@types/jest", "npm:29.0.1"],\
             ["@types/react", "npm:18.0.18"],\
             ["@types/use-sync-external-store", "npm:0.0.3"],\
             ["esbuild", "npm:0.15.7"],\
@@ -1656,6 +1657,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@types/istanbul-reports", "npm:3.0.1"],\
             ["@types/istanbul-lib-report", "npm:3.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/jest", [\
+        ["npm:29.0.1", {\
+          "packageLocation": "./.yarn/cache/@types-jest-npm-29.0.1-c663a9f1d1-efd30357c2.zip/node_modules/@types/jest/",\
+          "packageDependencies": [\
+            ["@types/jest", "npm:29.0.1"],\
+            ["expect", "npm:29.0.3"],\
+            ["pretty-format", "npm:29.0.3"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -4966,6 +4978,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@swc/core", "npm:1.2.249"],\
             ["@swc/jest", "virtual:965bcc1ec742f2f0072bc65d3f7a98f274f7c8b2da78bc2183f580d489add95c978db5cae27f5f8821960c8a609013a6ab6a28fca0d6e5bce1185eed5b66c1bd#npm:0.2.22"],\
             ["@testing-library/react", "virtual:965bcc1ec742f2f0072bc65d3f7a98f274f7c8b2da78bc2183f580d489add95c978db5cae27f5f8821960c8a609013a6ab6a28fca0d6e5bce1185eed5b66c1bd#npm:13.4.0"],\
+            ["@types/jest", "npm:29.0.1"],\
             ["@types/react", "npm:18.0.18"],\
             ["@types/use-sync-external-store", "npm:0.0.3"],\
             ["esbuild", "npm:0.15.7"],\
