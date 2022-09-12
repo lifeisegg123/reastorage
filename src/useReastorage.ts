@@ -1,11 +1,7 @@
-import { useSyncExternalStore } from "use-sync-external-store/shim/index.js";
 import { ReastorageInterface } from "./ReastorageInterface";
+import { useReastorageValue } from "./useReastorageValue";
 
 export const useReastorage = <T>(storage: ReastorageInterface<T>) => {
-  const state = useSyncExternalStore(
-    storage.subscribe,
-    storage.get,
-    storage.getInitialValue
-  );
+  const state = useReastorageValue(storage);
   return [state, storage.set] as const;
 };
