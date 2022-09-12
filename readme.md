@@ -6,6 +6,7 @@
 
 This library will help you use local & session storage in your application.
 It provides a global state management for local or session storage, utils for Object, Array.
+And also provides text compression to store more data in your storage!
 
 ## apis
 
