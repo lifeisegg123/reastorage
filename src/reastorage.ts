@@ -1,11 +1,60 @@
 import { ReastorageInterface } from "./ReastorageInterface";
 import { DataOrUpdaterFn, isUpdaterFn } from "./utils";
+import {
+  compress as lzCompress,
+  decompress as lzDecompress,
+  compressToUTF16,
+  decompressFromUTF16,
+} from "lz-string";
+
+type Compress = "default" | "utf-16" | false;
+interface Options {
+  storage: "local" | "session";
+  compress: Compress;
+}
+
+const handleCompressMethod = (compress: Compress, isDecompress?: boolean) => {
+  switch (compress) {
+    case "utf-16":
+      return isDecompress ? decompressFromUTF16 : compressToUTF16;
+    case "default":
+      return isDecompress ? lzDecompress : lzCompress;
+    default:
+      throw new Error("Invalid compress method");
+  }
+};
+
+const getStorageItem = (storage: Storage, key: string, compress: Compress) => {
+  const item = storage.getItem(key);
+  if (item) {
+    return JSON.parse(
+      compress
+        ? (handleCompressMethod(compress, true)(item) as string) || item
+        : item
+    );
+  }
+  return null;
+};
+
+const setStorageItem = <T>(
+  storage: Storage,
+  key: string,
+  value: T,
+  compress: Compress
+) => {
+  const item = JSON.stringify(value);
+  storage.setItem(
+    key,
+    compress ? (handleCompressMethod(compress)(item) as string) : item
+  );
+};
 
 export const reastorage = <T>(
   key: string,
   initialValue: T,
-  storage: "local" | "session" = "local"
+  options: Options = { storage: "local", compress: "default" }
 ): ReastorageInterface<T> => {
+  const { storage, compress } = options;
   let data = initialValue;
   let getInitial = false;
   let listeners = new Set<VoidFunction>();
@@ -13,11 +62,20 @@ export const reastorage = <T>(
   const get = () => {
     if (!getInitial) {
       getInitial = true;
-      const targetValue = window[`${storage}Storage`].getItem(key);
+      const targetValue = getStorageItem(
+        window[`${storage}Storage`],
+        key,
+        compress
+      );
       if (!targetValue) {
-        window[`${storage}Storage`].setItem(key, JSON.stringify(initialValue));
+        setStorageItem(
+          window[`${storage}Storage`],
+          key,
+          initialValue,
+          compress
+        );
       } else {
-        data = JSON.parse(targetValue);
+        data = targetValue;
       }
     }
     return data;
@@ -30,7 +88,7 @@ export const reastorage = <T>(
       ? dataOrUpdater(data)
       : dataOrUpdater;
 
-    window[`${storage}Storage`].setItem(key, JSON.stringify(value));
+    setStorageItem(window[`${storage}Storage`], key, value, compress);
     data = value;
     listeners.forEach((cb) => cb());
   };

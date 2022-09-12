@@ -17,14 +17,14 @@ describe("reastorage", () => {
 
   it("should update value with updater function", () => {
     const initialValue = 2;
-    const store = reastorage("test2", initialValue);
+    const store = reastorage("test3", initialValue);
     store.set((v) => v * 2);
     expect(store.get()).toEqual(4);
   });
 
   it("should reset value", () => {
     const initialValue = 1;
-    const store = reastorage("test2", initialValue);
+    const store = reastorage("test4", initialValue);
     store.set(2);
     expect(store.get()).toEqual(2);
     store.reset();
@@ -33,7 +33,7 @@ describe("reastorage", () => {
 
   it("should call subscribe", () => {
     const initialValue = 1;
-    const store = reastorage("test2", initialValue);
+    const store = reastorage("test5", initialValue);
     const spy = jest.fn();
     store.subscribe(spy);
     store.set(2);
@@ -43,7 +43,7 @@ describe("reastorage", () => {
 
   it("should call unsubscribe", () => {
     const initialValue = 1;
-    const store = reastorage("test2", initialValue);
+    const store = reastorage("test6", initialValue);
     const spy = jest.fn();
     const unsubscribe = store.subscribe(spy);
     unsubscribe();
