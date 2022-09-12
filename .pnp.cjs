@@ -37,11 +37,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@swc/jest", "virtual:965bcc1ec742f2f0072bc65d3f7a98f274f7c8b2da78bc2183f580d489add95c978db5cae27f5f8821960c8a609013a6ab6a28fca0d6e5bce1185eed5b66c1bd#npm:0.2.22"],\
             ["@testing-library/react", "virtual:965bcc1ec742f2f0072bc65d3f7a98f274f7c8b2da78bc2183f580d489add95c978db5cae27f5f8821960c8a609013a6ab6a28fca0d6e5bce1185eed5b66c1bd#npm:13.4.0"],\
             ["@types/jest", "npm:29.0.1"],\
+            ["@types/lz-string", "npm:1.3.34"],\
             ["@types/react", "npm:18.0.18"],\
             ["@types/use-sync-external-store", "npm:0.0.3"],\
             ["esbuild", "npm:0.15.7"],\
             ["jest", "virtual:965bcc1ec742f2f0072bc65d3f7a98f274f7c8b2da78bc2183f580d489add95c978db5cae27f5f8821960c8a609013a6ab6a28fca0d6e5bce1185eed5b66c1bd#npm:29.0.3"],\
             ["jest-environment-jsdom", "npm:29.0.3"],\
+            ["lz-string", "npm:1.4.4"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:965bcc1ec742f2f0072bc65d3f7a98f274f7c8b2da78bc2183f580d489add95c978db5cae27f5f8821960c8a609013a6ab6a28fca0d6e5bce1185eed5b66c1bd#npm:18.2.0"],\
             ["rollup", "npm:2.79.0"],\
@@ -1693,6 +1695,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:18.7.16"],\
             ["@types/tough-cookie", "npm:4.0.2"],\
             ["parse5", "npm:7.1.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/lz-string", [\
+        ["npm:1.3.34", {\
+          "packageLocation": "./.yarn/cache/@types-lz-string-npm-1.3.34-df60e110d9-e5c5ec0b9b.zip/node_modules/@types/lz-string/",\
+          "packageDependencies": [\
+            ["@types/lz-string", "npm:1.3.34"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -5028,11 +5039,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@swc/jest", "virtual:965bcc1ec742f2f0072bc65d3f7a98f274f7c8b2da78bc2183f580d489add95c978db5cae27f5f8821960c8a609013a6ab6a28fca0d6e5bce1185eed5b66c1bd#npm:0.2.22"],\
             ["@testing-library/react", "virtual:965bcc1ec742f2f0072bc65d3f7a98f274f7c8b2da78bc2183f580d489add95c978db5cae27f5f8821960c8a609013a6ab6a28fca0d6e5bce1185eed5b66c1bd#npm:13.4.0"],\
             ["@types/jest", "npm:29.0.1"],\
+            ["@types/lz-string", "npm:1.3.34"],\
             ["@types/react", "npm:18.0.18"],\
             ["@types/use-sync-external-store", "npm:0.0.3"],\
             ["esbuild", "npm:0.15.7"],\
             ["jest", "virtual:965bcc1ec742f2f0072bc65d3f7a98f274f7c8b2da78bc2183f580d489add95c978db5cae27f5f8821960c8a609013a6ab6a28fca0d6e5bce1185eed5b66c1bd#npm:29.0.3"],\
             ["jest-environment-jsdom", "npm:29.0.3"],\
+            ["lz-string", "npm:1.4.4"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:965bcc1ec742f2f0072bc65d3f7a98f274f7c8b2da78bc2183f580d489add95c978db5cae27f5f8821960c8a609013a6ab6a28fca0d6e5bce1185eed5b66c1bd#npm:18.2.0"],\
             ["rollup", "npm:2.79.0"],\

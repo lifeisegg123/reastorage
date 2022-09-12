@@ -6,6 +6,7 @@
 
 This library will help you use local & session storage in your application.
 It provides a global state management for local or session storage, utils for Object, Array.
+And also provides text compression to store more data in your storage!
 
 ## apis
 
@@ -19,10 +20,20 @@ This is a function that provides global access to local or session storage.
 - initialValue
   - **Required** `T`
   - Initial value of the storage. If data has not found in storage, it will be set to this value.
-- storage
-  - **Optional** `local` | `session`
-  - Default is `local`
-  - This will determine which storage to use.
+- options
+  - storage
+    - **Optional** `'local'` | `'session'`
+    - Default is `local`
+    - This will determine which storage to use.
+  - compress
+    - **Optional** `'default'` | `'utf-16'` | `false`
+    - Default is `default`
+    - use `lz-string` to compress data.
+    - This will determine the strategy of compression.
+      - `'default'`: use `invalid utf-16` to compress data. this will only work in webkit browsers(Android, Chrome, Safari).
+      - `'utf-16'`: use `utf-16` to compress the data. this will work on every browsers, but slightly larger then `default`.
+      - `false`: do not compress the data.
+    - for more information, please refer to [lz-string](https://pieroxy.net/blog/pages/lz-string/index.html)
 
 #### Example
 ```ts
