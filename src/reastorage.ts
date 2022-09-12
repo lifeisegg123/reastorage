@@ -1,4 +1,4 @@
-import { ReastorageInterface } from "./ReastorageInterface";
+import { Compress, Options, ReastorageInterface } from "./ReastorageInterface";
 import { DataOrUpdaterFn, isUpdaterFn } from "./utils";
 import {
   compress as lzCompress,
@@ -6,12 +6,6 @@ import {
   compressToUTF16,
   decompressFromUTF16,
 } from "lz-string";
-
-type Compress = "default" | "utf-16" | false;
-interface Options {
-  storage: "local" | "session";
-  compress: Compress;
-}
 
 const handleCompressMethod = (compress: Compress, isDecompress?: boolean) => {
   switch (compress) {

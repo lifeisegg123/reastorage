@@ -11,7 +11,7 @@ export default {
   external: [
     "react",
     "use-sync-external-store",
-    "use-sync-external-store/shim",
+    "use-sync-external-store/shim/index.js",
     "lz-string",
   ],
   input: "src/index.ts",
