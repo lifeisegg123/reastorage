@@ -1,4 +1,5 @@
 import esbuild from "rollup-plugin-esbuild";
+import dts from "rollup-plugin-dts";
 
 /** @type {import('rollup').RollupOptions['output']} */
 const output = {
@@ -7,7 +8,7 @@ const output = {
   dir: "./dist",
 };
 
-export default {
+const sharedConfig = {
   external: [
     "react",
     "use-sync-external-store",
@@ -15,21 +16,32 @@ export default {
     "lz-string",
   ],
   input: "src/index.ts",
-  plugins: [
-    esbuild({
-      jsx: "automatic",
-      minify: true,
-    }),
-  ],
-  output: [
-    {
-      ...output,
-      format: "cjs",
-    },
-    {
-      ...output,
-      format: "esm",
-      entryFileNames: "[name].mjs",
-    },
-  ],
 };
+
+export default [
+  {
+    ...sharedConfig,
+    plugins: [
+      esbuild({
+        jsx: "automatic",
+        minify: true,
+      }),
+    ],
+    output: [
+      {
+        ...output,
+        format: "cjs",
+      },
+      {
+        ...output,
+        format: "esm",
+        entryFileNames: "[name].mjs",
+      },
+    ],
+  },
+  {
+    ...sharedConfig,
+    output: { ...output, entryFileNames: "[name].d.ts", format: "esm" },
+    plugins: [dts()],
+  },
+];
