@@ -62,7 +62,7 @@ export const reastorage = <T>(
       key,
       compress
     );
-    if (!targetValue) {
+    if (targetValue === null) {
       setStorageItem(window[`${storage}Storage`], key, initialValue, compress);
     } else {
       data = targetValue;
