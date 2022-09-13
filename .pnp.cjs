@@ -47,6 +47,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:965bcc1ec742f2f0072bc65d3f7a98f274f7c8b2da78bc2183f580d489add95c978db5cae27f5f8821960c8a609013a6ab6a28fca0d6e5bce1185eed5b66c1bd#npm:18.2.0"],\
             ["rollup", "npm:2.79.0"],\
+            ["rollup-plugin-dts", "virtual:965bcc1ec742f2f0072bc65d3f7a98f274f7c8b2da78bc2183f580d489add95c978db5cae27f5f8821960c8a609013a6ab6a28fca0d6e5bce1185eed5b66c1bd#npm:4.2.2"],\
             ["rollup-plugin-esbuild", "virtual:965bcc1ec742f2f0072bc65d3f7a98f274f7c8b2da78bc2183f580d489add95c978db5cae27f5f8821960c8a609013a6ab6a28fca0d6e5bce1185eed5b66c1bd#npm:4.10.1"],\
             ["ts-node", "virtual:965bcc1ec742f2f0072bc65d3f7a98f274f7c8b2da78bc2183f580d489add95c978db5cae27f5f8821960c8a609013a6ab6a28fca0d6e5bce1185eed5b66c1bd#npm:10.9.1"],\
             ["typescript", "patch:typescript@npm%3A4.8.3#~builtin<compat/typescript>::version=4.8.3&hash=a1c5e5"],\
@@ -4363,6 +4364,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["magic-string", [\
+        ["npm:0.26.3", {\
+          "packageLocation": "./.yarn/cache/magic-string-npm-0.26.3-545004b23b-e72c9b3d90.zip/node_modules/magic-string/",\
+          "packageDependencies": [\
+            ["magic-string", "npm:0.26.3"],\
+            ["sourcemap-codec", "npm:1.4.8"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["make-dir", [\
         ["npm:3.1.0", {\
           "packageLocation": "./.yarn/cache/make-dir-npm-3.1.0-d1d7505142-484200020a.zip/node_modules/make-dir/",\
@@ -5049,6 +5060,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:965bcc1ec742f2f0072bc65d3f7a98f274f7c8b2da78bc2183f580d489add95c978db5cae27f5f8821960c8a609013a6ab6a28fca0d6e5bce1185eed5b66c1bd#npm:18.2.0"],\
             ["rollup", "npm:2.79.0"],\
+            ["rollup-plugin-dts", "virtual:965bcc1ec742f2f0072bc65d3f7a98f274f7c8b2da78bc2183f580d489add95c978db5cae27f5f8821960c8a609013a6ab6a28fca0d6e5bce1185eed5b66c1bd#npm:4.2.2"],\
             ["rollup-plugin-esbuild", "virtual:965bcc1ec742f2f0072bc65d3f7a98f274f7c8b2da78bc2183f580d489add95c978db5cae27f5f8821960c8a609013a6ab6a28fca0d6e5bce1185eed5b66c1bd#npm:4.10.1"],\
             ["ts-node", "virtual:965bcc1ec742f2f0072bc65d3f7a98f274f7c8b2da78bc2183f580d489add95c978db5cae27f5f8821960c8a609013a6ab6a28fca0d6e5bce1185eed5b66c1bd#npm:10.9.1"],\
             ["typescript", "patch:typescript@npm%3A4.8.3#~builtin<compat/typescript>::version=4.8.3&hash=a1c5e5"],\
@@ -5149,6 +5161,34 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["rollup", "npm:2.79.0"],\
             ["fsevents", "patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=18f3a7"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["rollup-plugin-dts", [\
+        ["npm:4.2.2", {\
+          "packageLocation": "./.yarn/cache/rollup-plugin-dts-npm-4.2.2-6feb0c1375-cf4b45f6cc.zip/node_modules/rollup-plugin-dts/",\
+          "packageDependencies": [\
+            ["rollup-plugin-dts", "npm:4.2.2"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:965bcc1ec742f2f0072bc65d3f7a98f274f7c8b2da78bc2183f580d489add95c978db5cae27f5f8821960c8a609013a6ab6a28fca0d6e5bce1185eed5b66c1bd#npm:4.2.2", {\
+          "packageLocation": "./.yarn/__virtual__/rollup-plugin-dts-virtual-6ed626c731/0/cache/rollup-plugin-dts-npm-4.2.2-6feb0c1375-cf4b45f6cc.zip/node_modules/rollup-plugin-dts/",\
+          "packageDependencies": [\
+            ["rollup-plugin-dts", "virtual:965bcc1ec742f2f0072bc65d3f7a98f274f7c8b2da78bc2183f580d489add95c978db5cae27f5f8821960c8a609013a6ab6a28fca0d6e5bce1185eed5b66c1bd#npm:4.2.2"],\
+            ["@babel/code-frame", "npm:7.18.6"],\
+            ["@types/rollup", null],\
+            ["@types/typescript", null],\
+            ["magic-string", "npm:0.26.3"],\
+            ["rollup", "npm:2.79.0"],\
+            ["typescript", "patch:typescript@npm%3A4.8.3#~builtin<compat/typescript>::version=4.8.3&hash=a1c5e5"]\
+          ],\
+          "packagePeers": [\
+            "@types/rollup",\
+            "@types/typescript",\
+            "rollup",\
+            "typescript"\
           ],\
           "linkType": "HARD"\
         }]\
@@ -5349,6 +5389,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["source-map-support", "npm:0.5.13"],\
             ["buffer-from", "npm:1.1.2"],\
             ["source-map", "npm:0.6.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["sourcemap-codec", [\
+        ["npm:1.4.8", {\
+          "packageLocation": "./.yarn/cache/sourcemap-codec-npm-1.4.8-3a1a9e60b1-b57981c056.zip/node_modules/sourcemap-codec/",\
+          "packageDependencies": [\
+            ["sourcemap-codec", "npm:1.4.8"]\
           ],\
           "linkType": "HARD"\
         }]\
