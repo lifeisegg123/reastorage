@@ -54,23 +54,18 @@ export const reastorage = <T>(
   let listeners = new Set<VoidFunction>();
 
   const get = () => {
-    if (!getInitial) {
-      getInitial = true;
-      const targetValue = getStorageItem(
-        window[`${storage}Storage`],
-        key,
-        compress
-      );
-      if (!targetValue) {
-        setStorageItem(
-          window[`${storage}Storage`],
-          key,
-          initialValue,
-          compress
-        );
-      } else {
-        data = targetValue;
-      }
+    if (getInitial) return data;
+    getInitial = true;
+
+    const targetValue = getStorageItem(
+      window[`${storage}Storage`],
+      key,
+      compress
+    );
+    if (targetValue === null) {
+      setStorageItem(window[`${storage}Storage`], key, initialValue, compress);
+    } else {
+      data = targetValue;
     }
     return data;
   };
