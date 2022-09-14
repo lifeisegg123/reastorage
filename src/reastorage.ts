@@ -55,6 +55,7 @@ export const reastorage = <T>(
 
   const get = () => {
     if (getInitial) return data;
+    if (typeof window === "undefined") return initialValue;
     getInitial = true;
 
     const targetValue = getStorageItem(
