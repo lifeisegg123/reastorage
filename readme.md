@@ -57,7 +57,7 @@ It will return as the same type as `useState` hook from `react`
 const example = reastorage('example', 0);
 
 function ExampleComponent() {
-  const [exampleValue, setExampleValue] = useReactorage(example);
+  const [exampleValue, setExampleValue] = useReastorage(example);
   return (
     <div>
       <button onClick={() => setExampleValue(example + 1)}>
