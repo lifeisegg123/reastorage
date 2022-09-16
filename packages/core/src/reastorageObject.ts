@@ -1,7 +1,7 @@
 import { reastorage } from "./reastorage";
 import { isUpdaterFn, UpdaterFn } from "./utils";
 
-export type AnyRecord = Record<string, any>;
+type AnyRecord = Record<string, any>;
 
 export const reastorageObject = <T extends AnyRecord>(
   ...args: Parameters<typeof reastorage<T>>
