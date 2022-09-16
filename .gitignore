@@ -12,3 +12,4 @@ dist
 #/.pnp.*
 
 coverage
+.ultra.cache.json
