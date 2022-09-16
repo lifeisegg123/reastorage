@@ -36,9 +36,7 @@
     "build": "ultra -r build",
     "dev": "ultra -r dev",
     "test": "ultra -r test",
-    "publish": "yarn build && lerna publish",
-    "versionup": "lerna version --conventional-commits --no-git-tag-version",
-    "postversionup": "yarn run commit-version"
+    "publish": "yarn build && lerna publish from-git"
   },
   "devDependencies": {
     "esbuild": "^0.15.7",
