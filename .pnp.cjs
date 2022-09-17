@@ -27,6 +27,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       {\
         "name": "@reastorage/react",\
         "reference": "workspace:packages/react"\
+      },\
+      {\
+        "name": "@reastorage/vue",\
+        "reference": "workspace:packages/vue"\
       }\
     ],\
     "enableTopLevelFallback": true,\
@@ -34,6 +38,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     "fallbackExclusionList": [\
       ["@reastorage/core", ["workspace:packages/core"]],\
       ["@reastorage/react", ["workspace:packages/react"]],\
+      ["@reastorage/vue", ["workspace:packages/vue"]],\
       ["reastorage", ["workspace:."]]\
     ],\
     "fallbackPool": [\
@@ -2586,6 +2591,21 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:92171abe59c99c0401ef851bd052e5d5f770d72cf4f0d4a0bc5c614178c6e78513544c89d73392af9272ce8c9605db472aa32d18f8146090e37e5ccc1a361ce9#npm:18.2.0"],\
             ["use-sync-external-store", "virtual:92171abe59c99c0401ef851bd052e5d5f770d72cf4f0d4a0bc5c614178c6e78513544c89d73392af9272ce8c9605db472aa32d18f8146090e37e5ccc1a361ce9#npm:1.2.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }]\
+      ]],\
+      ["@reastorage/vue", [\
+        ["workspace:packages/vue", {\
+          "packageLocation": "./packages/vue/",\
+          "packageDependencies": [\
+            ["@reastorage/vue", "workspace:packages/vue"],\
+            ["@reastorage/core", "workspace:packages/core"],\
+            ["@swc/core", "npm:1.3.1"],\
+            ["@swc/jest", "virtual:8044ac0ad0d352910593936ee99f45b04d4c19473a567437cf3dd2dbd80b5629dc9384b9101e7fa583f84cefb634c730be03cea9a42f5717587a6cdddbafc629#npm:0.2.22"],\
+            ["@types/jest", "npm:29.0.2"],\
+            ["jest", "virtual:965bcc1ec742f2f0072bc65d3f7a98f274f7c8b2da78bc2183f580d489add95c978db5cae27f5f8821960c8a609013a6ab6a28fca0d6e5bce1185eed5b66c1bd#npm:29.0.3"],\
+            ["use-sync-external-store", "virtual:bb704758f638989b063be32d27b047e90262fd67f928ce6e1a30fd2bec2c675dd431de7c2c9edd3ad3c3461a496e1a315a54fb4cbe3da7ed9a81fdd048ccc371#npm:1.2.0"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -9990,6 +10010,19 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["use-sync-external-store", "virtual:92171abe59c99c0401ef851bd052e5d5f770d72cf4f0d4a0bc5c614178c6e78513544c89d73392af9272ce8c9605db472aa32d18f8146090e37e5ccc1a361ce9#npm:1.2.0"],\
             ["@types/react", "npm:18.0.20"],\
             ["react", "npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["virtual:bb704758f638989b063be32d27b047e90262fd67f928ce6e1a30fd2bec2c675dd431de7c2c9edd3ad3c3461a496e1a315a54fb4cbe3da7ed9a81fdd048ccc371#npm:1.2.0", {\
+          "packageLocation": "./.yarn/__virtual__/use-sync-external-store-virtual-13426bb54b/0/cache/use-sync-external-store-npm-1.2.0-44f75d2564-5c639e0f8d.zip/node_modules/use-sync-external-store/",\
+          "packageDependencies": [\
+            ["use-sync-external-store", "virtual:bb704758f638989b063be32d27b047e90262fd67f928ce6e1a30fd2bec2c675dd431de7c2c9edd3ad3c3461a496e1a315a54fb4cbe3da7ed9a81fdd048ccc371#npm:1.2.0"],\
+            ["@types/react", null],\
+            ["react", null]\
           ],\
           "packagePeers": [\
             "@types/react",\
