@@ -1,9 +1,13 @@
 import { DependencyList, useCallback } from "react";
 import { ReastorageInterface, DataOrUpdaterFn } from "@reastorage/core";
+import { ActionCreator } from "@reastorage/core/dist/ReastorageInterface";
 
 interface UseStorageCallbackParams {
-  get<T>(storage: ReastorageInterface<T>): T;
-  set<T>(storage: ReastorageInterface<T>, data: DataOrUpdaterFn<T>): void;
+  get<T, A>(storage: ReastorageInterface<T, A>): T;
+  set<T, A>(storage: ReastorageInterface<T, A>, data: DataOrUpdaterFn<T>): void;
+  actions<T, A>(
+    storage: ReastorageInterface<T, A>
+  ): ReturnType<ActionCreator<T, A>>;
 }
 
 export const useReastorageCallback = (
@@ -14,6 +18,7 @@ export const useReastorageCallback = (
     callback({
       get: (storage) => storage.get(),
       set: (storage, data) => storage.set(data),
+      actions: (storage) => storage.actions,
     });
   }, [...deps]);
 };

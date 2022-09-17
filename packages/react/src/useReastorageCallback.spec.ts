@@ -45,4 +45,26 @@ describe("useReastorageCallback", () => {
 
     expect(store.get()).toEqual(21);
   });
+
+  it("should call actions", () => {
+    const initialValue = 1;
+    const store = reastorage("test3", initialValue, {
+      actions: (v) => ({
+        add: (n: number) => v + n,
+        increase: () => v + 1,
+      }),
+    });
+    const { result } = renderHook(() =>
+      useReastorageCallback(({ actions }) => {
+        const { add, increase } = actions(store);
+        add(2);
+        increase();
+      })
+    );
+    act(() => {
+      result.current();
+    });
+
+    expect(store.get()).toEqual(4);
+  });
 });

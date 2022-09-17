@@ -4,8 +4,8 @@ type InferArray<T> = T extends Array<infer U> ? U : never;
 
 type RemoveValOrFn<T> = ((v: InferArray<T>) => boolean) | InferArray<T>;
 
-export const reastorageArray = <T extends Array<any>>(
-  ...args: Parameters<typeof reastorage<T>>
+export const reastorageArray = <T extends Array<any>, A = never>(
+  ...args: Parameters<typeof reastorage<T, A>>
 ) => {
   const storage = reastorage(...args);
   return {
@@ -24,6 +24,6 @@ export const reastorageArray = <T extends Array<any>>(
   };
 };
 
-export type ReastorageArray<T extends Array<any>> = ReturnType<
-  typeof reastorageArray<T>
+export type ReastorageArray<T extends Array<any>, A> = ReturnType<
+  typeof reastorageArray<T, A>
 >;

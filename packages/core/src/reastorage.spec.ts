@@ -50,4 +50,18 @@ describe("reastorage", () => {
     store.set(2);
     expect(spy).not.toHaveBeenCalled();
   });
+
+  it("should call actions", () => {
+    const initialValue = 1;
+    const store = reastorage("test7", initialValue, {
+      actions: (v) => ({
+        add: (n: number) => v + n,
+        increase: () => v + 1,
+      }),
+    });
+    store.actions.add(2);
+    expect(store.get()).toEqual(3);
+    store.actions.increase();
+    expect(store.get()).toEqual(4);
+  });
 });

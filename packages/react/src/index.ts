@@ -4,5 +4,6 @@ export * from "./useSetReastorage";
 export * from "./useReastorage";
 export * from "./useReastorageCallback";
 export * from "./useReastorageValue";
+export * from "./useReastorageActions";
 
 export * from "@reastorage/core";
