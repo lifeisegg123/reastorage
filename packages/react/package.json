@@ -1,6 +1,6 @@
 {
   "name": "@reastorage/react",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -40,7 +40,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@reastorage/core": "^1.0.3",
+    "@reastorage/core": "^1.0.4",
     "use-sync-external-store": "^1.2.0"
   },
   "devDependencies": {
