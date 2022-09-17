@@ -1,6 +1,5 @@
 {
   "name": "reastorage",
-  "version": "0.1.5",
   "description": "Global state management for local or session storage",
   "license": "MIT",
   "workspaces": [
@@ -36,7 +35,7 @@
     "build": "ultra -r build",
     "dev": "ultra -r dev",
     "test": "ultra -r test",
-    "publish": "yarn build && lerna publish from-git"
+    "publish": "yarn build && lerna publish"
   },
   "devDependencies": {
     "esbuild": "^0.15.7",
