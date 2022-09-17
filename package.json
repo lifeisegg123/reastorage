@@ -35,7 +35,7 @@
     "build": "ultra -r build",
     "dev": "ultra -r dev",
     "test": "ultra -r test",
-    "publish": "yarn build && lerna publish from-package",
+    "publish": "yarn build && lerna publish from-package --yes",
     "version": "lerna version",
     "postversion": "yarn"
   },
