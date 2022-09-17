@@ -1950,7 +1950,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reastorage/core@^1.0.3, @reastorage/core@workspace:packages/core":
+"@reastorage/core@^1.0.4, @reastorage/core@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "@reastorage/core@workspace:packages/core"
   dependencies:
@@ -1967,7 +1967,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@reastorage/react@workspace:packages/react"
   dependencies:
-    "@reastorage/core": ^1.0.3
+    "@reastorage/core": ^1.0.4
     "@swc/core": ^1.3.1
     "@swc/jest": ^0.2.22
     "@testing-library/react": ^13.4.0
