@@ -13,7 +13,7 @@ export interface ReastorageInterface<T, A> {
   getInitialValue(): T;
   set(dataOrUpdater: DataOrUpdaterFn<T>): void;
   reset(): void;
-  subscribe(listen: VoidFunction): VoidFunction;
+  subscribe(listen: (value: T) => void): VoidFunction;
   actions: ReturnType<ActionCreator<T, A>>;
 }
 
