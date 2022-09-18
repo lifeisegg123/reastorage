@@ -3,7 +3,6 @@ import {
   Compress,
   Options,
   ReastorageInterface,
-  ReastoreageActions,
 } from "./ReastorageInterface";
 import { DataOrUpdaterFn, isUpdaterFn } from "./utils";
 import {
