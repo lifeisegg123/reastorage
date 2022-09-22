@@ -10,7 +10,7 @@ import {
   decompress as lzDecompress,
   compressToUTF16,
   decompressFromUTF16,
-} from "lz-string";
+} from "./lz-string";
 
 const handleCompressMethod = (compress: Compress, isDecompress?: boolean) => {
   switch (compress) {

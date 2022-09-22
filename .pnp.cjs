@@ -2576,9 +2576,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@swc/core", "npm:1.3.1"],\
             ["@swc/jest", "virtual:8044ac0ad0d352910593936ee99f45b04d4c19473a567437cf3dd2dbd80b5629dc9384b9101e7fa583f84cefb634c730be03cea9a42f5717587a6cdddbafc629#npm:0.2.22"],\
             ["@types/jest", "npm:29.0.2"],\
-            ["@types/lz-string", "npm:1.3.34"],\
-            ["jest", "virtual:965bcc1ec742f2f0072bc65d3f7a98f274f7c8b2da78bc2183f580d489add95c978db5cae27f5f8821960c8a609013a6ab6a28fca0d6e5bce1185eed5b66c1bd#npm:29.0.3"],\
-            ["lz-string", "npm:1.4.4"]\
+            ["jest", "virtual:965bcc1ec742f2f0072bc65d3f7a98f274f7c8b2da78bc2183f580d489add95c978db5cae27f5f8821960c8a609013a6ab6a28fca0d6e5bce1185eed5b66c1bd#npm:29.0.3"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -3053,15 +3051,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-json5-npm-0.0.29-f63a7916bd-e60b153664.zip/node_modules/@types/json5/",\
           "packageDependencies": [\
             ["@types/json5", "npm:0.0.29"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@types/lz-string", [\
-        ["npm:1.3.34", {\
-          "packageLocation": "./.yarn/cache/@types-lz-string-npm-1.3.34-df60e110d9-e5c5ec0b9b.zip/node_modules/@types/lz-string/",\
-          "packageDependencies": [\
-            ["@types/lz-string", "npm:1.3.34"]\
           ],\
           "linkType": "HARD"\
         }]\
