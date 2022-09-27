@@ -1,5 +1,5 @@
 import { reastorage } from "./reastorage";
-import { isUpdaterFn, UpdaterFn } from "./utils";
+import { isUpdaterFn, UpdaterFn } from "./utils/isUpdaterFn";
 
 type AnyRecord = Record<string, any>;
 

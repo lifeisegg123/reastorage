@@ -1,4 +1,4 @@
-import { DataOrUpdaterFn } from "./utils";
+import { DataOrUpdaterFn } from "./utils/isUpdaterFn";
 
 export type ReastoreageActions<T> = {
   [key: string]: (...args: any[]) => T;
@@ -24,3 +24,5 @@ export interface Options<T, A> {
   compress?: Compress;
   actions?: ActionCreator<T, A>;
 }
+
+export type Listener<T> = (value: T) => void;
