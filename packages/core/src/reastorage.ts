@@ -1,35 +1,18 @@
 import {
   ActionCreator,
   Compress,
+  Listener,
   Options,
   ReastorageInterface,
 } from "./ReastorageInterface";
-import { DataOrUpdaterFn, isUpdaterFn } from "./utils";
-import {
-  compress as lzCompress,
-  decompress as lzDecompress,
-  compressToUTF16,
-  decompressFromUTF16,
-} from "./lz-string";
-
-const handleCompressMethod = (compress: Compress, isDecompress?: boolean) => {
-  switch (compress) {
-    case "utf-16":
-      return isDecompress ? decompressFromUTF16 : compressToUTF16;
-    case "default":
-      return isDecompress ? lzDecompress : lzCompress;
-    default:
-      throw new Error("Invalid compress method");
-  }
-};
+import { DataOrUpdaterFn, isUpdaterFn } from "./utils/isUpdaterFn";
+import { handleCompress } from "./utils/handleCompress";
 
 const getStorageItem = (storage: Storage, key: string, compress: Compress) => {
   const item = storage.getItem(key);
   if (item) {
     return JSON.parse(
-      compress
-        ? (handleCompressMethod(compress, true)(item) as string) || item
-        : item
+      compress ? (handleCompress(compress, true)(item) as string) || item : item
     );
   }
   return null;
@@ -44,11 +27,9 @@ const setStorageItem = <T>(
   const item = JSON.stringify(value);
   storage.setItem(
     key,
-    compress ? (handleCompressMethod(compress)(item) as string) : item
+    compress ? (handleCompress(compress)(item) as string) : item
   );
 };
-
-type Listeners<T> = (value: T) => void;
 
 export const reastorage = <T, A = never>(
   key: string,
@@ -62,7 +43,7 @@ export const reastorage = <T, A = never>(
   } = options || {};
   let data = initialValue;
   let getInitial = false;
-  let listeners = new Set<Listeners<T>>();
+  let listeners = new Set<Listener<T>>();
 
   const get = () => {
     if (getInitial) return data;
@@ -95,7 +76,7 @@ export const reastorage = <T, A = never>(
   };
   const reset = () => set(initialValue);
 
-  const subscribe = (listen: Listeners<T>) => {
+  const subscribe = (listen: Listener<T>) => {
     listeners.add(listen);
     return () => {
       listeners.delete(listen);
