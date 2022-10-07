@@ -26,7 +26,6 @@ export default [
     plugins: [
       esbuild({
         jsx: "automatic",
-        minify: true,
         exclude: "**/*.spec.ts",
       }),
     ],

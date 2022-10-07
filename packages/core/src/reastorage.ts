@@ -41,15 +41,8 @@ export const reastorage = <T, A = never>(
     compress = "default",
     actions: storageActions,
   } = options || {};
-  let data = initialValue;
-  let getInitial = false;
-  let listeners = new Set<Listener<T>>();
-
-  const get = () => {
-    if (getInitial) return data;
+  let data = (() => {
     if (typeof window === "undefined") return initialValue;
-    getInitial = true;
-
     const targetValue = getStorageItem(
       window[`${storage}Storage`],
       key,
@@ -57,9 +50,14 @@ export const reastorage = <T, A = never>(
     );
     if (targetValue === null) {
       setStorageItem(window[`${storage}Storage`], key, initialValue, compress);
-    } else {
-      data = targetValue;
+      return initialValue;
     }
+    return targetValue;
+  })();
+  let listeners = new Set<Listener<T>>();
+
+  const get = () => {
+    if (typeof window === "undefined") return initialValue;
     return data;
   };
 
