@@ -1,6 +1,6 @@
 {
   "name": "@reastorage/vue",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -41,7 +41,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@reastorage/core": "^1.0.6",
+    "@reastorage/core": "^1.1.0",
     "vue-demi": "^0.13.11"
   },
   "devDependencies": {
