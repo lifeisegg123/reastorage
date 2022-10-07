@@ -64,4 +64,12 @@ describe("reastorage", () => {
     store.actions.increase();
     expect(store.get()).toEqual(4);
   });
+
+  it("should have priority to stored value", () => {
+    const initialValue = 1;
+    window.localStorage.setItem("test8", JSON.stringify(2));
+    const store = reastorage("test8", initialValue, { compress: false });
+    store.set((v) => v * 2);
+    expect(store.get()).toEqual(4);
+  });
 });
