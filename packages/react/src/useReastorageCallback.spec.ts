@@ -48,7 +48,7 @@ describe("useReastorageCallback", () => {
 
   it("should call actions", () => {
     const initialValue = 1;
-    const store = reastorage("test3", initialValue, {
+    const store = reastorage("test4", initialValue, {
       actions: (v) => ({
         add: (n: number) => v + n,
         increase: () => v + 1,
