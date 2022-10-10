@@ -65,10 +65,25 @@ describe("reastorage", () => {
     expect(store.get()).toEqual(4);
   });
 
+  it("should call actions with object", () => {
+    const initialValue: { a: number; b: number[] } = { a: 1, b: [] };
+    const store = reastorage("test8", initialValue, {
+      actions: (v) => ({
+        addA: (n: number) => ({ ...v, a: v.a + n }),
+        pushB: (item: number) => ({ ...v, b: [...v.b, item] }),
+      }),
+    });
+
+    store.actions.addA(2);
+    expect(store.get()).toEqual({ a: 3, b: [] });
+    store.actions.pushB(1);
+    expect(store.get()).toEqual({ a: 3, b: [1] });
+  });
+
   it("should have priority to stored value", () => {
     const initialValue = 1;
-    window.localStorage.setItem("test8", JSON.stringify(2));
-    const store = reastorage("test8", initialValue, { compress: false });
+    window.localStorage.setItem("test9", JSON.stringify(2));
+    const store = reastorage("test9", initialValue, { compress: false });
     store.set((v) => v * 2);
     expect(store.get()).toEqual(4);
   });

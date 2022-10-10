@@ -13,6 +13,6 @@ export const handleCompress = (compress: Compress, isDecompress?: boolean) => {
     case "default":
       return isDecompress ? lzDecompress : lzCompress;
     default:
-      throw new Error("Invalid compress method");
+      throw new Error(`[Reastorage] Invalid compress method is provided`);
   }
 };

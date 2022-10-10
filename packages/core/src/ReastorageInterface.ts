@@ -15,6 +15,7 @@ export interface ReastorageInterface<T, A> {
   reset(): void;
   subscribe(listen: (value: T) => void): VoidFunction;
   actions: ReturnType<ActionCreator<T, A>>;
+  key: string;
 }
 
 export type Compress = "default" | "utf-16" | false;
@@ -26,3 +27,14 @@ export interface Options<T, A> {
 }
 
 export type Listener<T> = (value: T) => void;
+
+export type ExtractStorageValue<T> = T extends ReastorageInterface<infer V, any>
+  ? V
+  : never;
+
+export type ExtractStorageActions<T> = T extends ReastorageInterface<
+  any,
+  infer Actions
+>
+  ? Actions
+  : never;
