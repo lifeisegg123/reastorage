@@ -1,10 +1,5 @@
-import {
-  ActionCreator,
-  Compress,
-  Listener,
-  Options,
-  ReastorageInterface,
-} from "./ReastorageInterface";
+import { Listener } from "types/internal";
+import { ActionCreator, Compress, Options, ReastorageInterface } from "./types";
 import { handleCompress } from "./utils/handleCompress";
 import { DataOrUpdaterFn, isUpdaterFn } from "./utils/isUpdaterFn";
 

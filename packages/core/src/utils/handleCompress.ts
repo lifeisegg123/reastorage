@@ -1,4 +1,4 @@
-import { Compress } from "ReastorageInterface";
+import { Compress } from "../types";
 import {
   compress as lzCompress,
   decompress as lzDecompress,
