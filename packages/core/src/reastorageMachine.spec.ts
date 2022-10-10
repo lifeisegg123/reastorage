@@ -83,4 +83,22 @@ describe("ReastorageMachine", () => {
     expect(store.getMachineState()).toEqual("c");
     expect(store.get()).toEqual(initialValue + 2 * 3);
   });
+
+  it("should call subscribe", () => {
+    const mock = jest.fn();
+    store.subscribeMachineState(mock);
+    store.send("SEND_B");
+    store.send("SEND_C", 2);
+    expect(mock).toBeCalledTimes(2);
+  });
+
+  it("should call subscribe", () => {
+    const mock = jest.fn();
+    const unsubscribe = store.subscribeMachineState(mock);
+    unsubscribe();
+
+    store.send("SEND_B");
+    store.send("SEND_C", 2);
+    expect(mock).not.toHaveBeenCalled();
+  });
 });

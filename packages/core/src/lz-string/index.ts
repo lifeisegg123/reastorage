@@ -10,7 +10,6 @@
 
 // private property
 var f = String.fromCharCode;
-var baseReverseDic: Record<string, Record<string, number>> = {};
 
 export function compressToUTF16(input: string) {
   if (input == null) return "";

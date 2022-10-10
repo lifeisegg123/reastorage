@@ -61,6 +61,14 @@ describe("reastorage", () => {
       store.set((v) => v * 2);
       expect(store.get()).toEqual(4);
     });
+
+    it("should work with utf-16", () => {
+      const initialValue = 1;
+      const store = reastorage("test8", initialValue, { compress: "utf-16" });
+      expect(store.get()).toEqual(initialValue);
+      store.set((v) => v * 2);
+      expect(store.get()).toEqual(initialValue * 2);
+    });
   });
 
   context("usage with actions", () => {
