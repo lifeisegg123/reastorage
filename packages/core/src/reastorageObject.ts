@@ -3,7 +3,7 @@ import { isUpdaterFn, UpdaterFn } from "./utils/isUpdaterFn";
 
 type AnyRecord = Record<string, any>;
 
-export const reastorageObject = <T extends AnyRecord, A = never>(
+export const reastorageObject = <T extends AnyRecord, A>(
   ...args: Parameters<typeof reastorage<T, A>>
 ) => {
   const storage = reastorage(...args);

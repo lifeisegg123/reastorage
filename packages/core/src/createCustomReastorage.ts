@@ -90,6 +90,7 @@ export const createCustomReastorage = (
       set,
       subscribe,
       actions: actions as ReturnType<ActionCreator<U, A>>,
+      key,
     };
   };
 };

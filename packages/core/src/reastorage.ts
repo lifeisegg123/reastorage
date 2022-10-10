@@ -4,6 +4,7 @@ import {
   Listener,
   Options,
   ReastorageInterface,
+  ReastoreageActions,
 } from "./ReastorageInterface";
 import { DataOrUpdaterFn, isUpdaterFn } from "./utils/isUpdaterFn";
 import { handleCompress } from "./utils/handleCompress";
@@ -31,7 +32,7 @@ const setStorageItem = <T>(
   );
 };
 
-export const reastorage = <T, A = never>(
+export const reastorage = <T, A>(
   key: string,
   initialValue: T,
   options?: Options<T, A>
@@ -106,5 +107,6 @@ export const reastorage = <T, A = never>(
     set,
     subscribe,
     actions: actions as ReturnType<ActionCreator<T, A>>,
+    key,
   };
 };

@@ -4,7 +4,7 @@ type InferArray<T> = T extends Array<infer U> ? U : never;
 
 type RemoveValOrFn<T> = ((v: InferArray<T>) => boolean) | InferArray<T>;
 
-export const reastorageArray = <T extends Array<any>, A = never>(
+export const reastorageArray = <T extends Array<any>, A>(
   ...args: Parameters<typeof reastorage<T, A>>
 ) => {
   const storage = reastorage(...args);

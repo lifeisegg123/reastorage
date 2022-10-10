@@ -1,11 +1,14 @@
 import { DependencyList, useCallback } from "react";
 import { ReastorageInterface, DataOrUpdaterFn } from "@reastorage/core";
-import { ActionCreator } from "@reastorage/core/dist/ReastorageInterface";
+import {
+  ActionCreator,
+  ReastoreageActions,
+} from "@reastorage/core/dist/ReastorageInterface";
 
 interface UseStorageCallbackParams {
   get<T, A>(storage: ReastorageInterface<T, A>): T;
   set<T, A>(storage: ReastorageInterface<T, A>, data: DataOrUpdaterFn<T>): void;
-  actions<T, A>(
+  actions<T, A extends ReastoreageActions<T>>(
     storage: ReastorageInterface<T, A>
   ): ReturnType<ActionCreator<T, A>>;
 }
@@ -18,7 +21,11 @@ export const useReastorageCallback = (
     callback({
       get: (storage) => storage.get(),
       set: (storage, data) => storage.set(data),
-      actions: (storage) => storage.actions,
+      actions: (storage) => {
+        if (!storage.actions)
+          throw new Error(`[Reastorage] storage ${storage.key} has no actions`);
+        return storage.actions;
+      },
     });
   }, [...deps]);
 };

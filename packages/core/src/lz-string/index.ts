@@ -10,21 +10,7 @@
 
 // private property
 var f = String.fromCharCode;
-var keyStrBase64 =
-  "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
-var keyStrUriSafe =
-  "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+-$";
 var baseReverseDic: Record<string, Record<string, number>> = {};
-
-function getBaseValue(alphabet: string, character: string) {
-  if (!baseReverseDic[alphabet]) {
-    baseReverseDic[alphabet] = {};
-    for (var i = 0; i < alphabet.length; i++) {
-      baseReverseDic[alphabet][alphabet.charAt(i)] = i;
-    }
-  }
-  return baseReverseDic[alphabet][character];
-}
 
 export function compressToUTF16(input: string) {
   if (input == null) return "";

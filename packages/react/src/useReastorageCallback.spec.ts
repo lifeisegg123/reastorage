@@ -67,4 +67,17 @@ describe("useReastorageCallback", () => {
 
     expect(store.get()).toEqual(4);
   });
+
+  it("should throw an error", () => {
+    jest.spyOn(console, "error").mockImplementation(() => {});
+    const initialValue = 1;
+    const store = reastorage("test5", initialValue);
+    const { result } = renderHook(() =>
+      useReastorageCallback(({ actions }) => {
+        // @ts-expect-error
+        actions(store);
+      })
+    );
+    expect(() => act(() => result.current())).toThrowError();
+  });
 });
