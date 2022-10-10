@@ -1,9 +1,10 @@
-import { DependencyList, useCallback } from "react";
-import { ReastorageInterface, DataOrUpdaterFn } from "@reastorage/core";
 import {
   ActionCreator,
+  DataOrUpdaterFn,
+  ReastorageInterface,
   ReastoreageActions,
-} from "@reastorage/core/dist/ReastorageInterface";
+} from "@reastorage/core";
+import { DependencyList, useCallback } from "react";
 
 interface UseStorageCallbackParams {
   get<T, A>(storage: ReastorageInterface<T, A>): T;

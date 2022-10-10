@@ -1,13 +1,7 @@
-import {
-  ActionCreator,
-  Compress,
-  Listener,
-  Options,
-  ReastorageInterface,
-  ReastoreageActions,
-} from "./ReastorageInterface";
-import { DataOrUpdaterFn, isUpdaterFn } from "./utils/isUpdaterFn";
+import { ActionCreator, Compress, Options, ReastorageInterface } from "./types";
+import { Listener } from "./types/internal";
 import { handleCompress } from "./utils/handleCompress";
+import { DataOrUpdaterFn, isUpdaterFn } from "./utils/isUpdaterFn";
 
 const getStorageItem = (storage: Storage, key: string, compress: Compress) => {
   const item = storage.getItem(key);
@@ -88,7 +82,7 @@ export const reastorage = <T, A>(
   const actions = (() => {
     if (!storageActions) return undefined;
     return Object.fromEntries(
-      Object.entries(storageActions(initialValue)).map(([key, fn]) => {
+      Object.entries(storageActions(initialValue)).map(([key]) => {
         return [
           key,
           (...args: any[]) =>
