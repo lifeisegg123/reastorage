@@ -7,5 +7,6 @@ export * from "./useReastorageValue";
 export * from "./useReastorageActions";
 export * from "./useReastorageSelector";
 export * from "./useReastorageMachine";
+export * from "./useRemoveReastorage";
 
 export * from "@reastorage/core";

@@ -38,7 +38,7 @@ describe("useReastorage", () => {
     it("should get value", () => {
       const initialValue = [1, 2, 3];
       const store = reastorageArray("test-arr", initialValue);
-      const [value, setValue] = useReastorage(store);
+      const [value] = useReastorage(store);
       expect(value.value).toEqual(initialValue);
     });
 

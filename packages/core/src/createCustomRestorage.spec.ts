@@ -4,7 +4,8 @@ const mockStore: Record<string, any> = {};
 
 const customReastorage = createCustomReastorage(
   (key) => mockStore[key],
-  (key, value) => (mockStore[key] = value)
+  (key, value) => (mockStore[key] = value),
+  (key) => delete mockStore[key]
 );
 
 describe("ReastorageArray", () => {
@@ -76,5 +77,18 @@ describe("ReastorageArray", () => {
     expect(store.get()).toEqual(1);
     store.set(2);
     expect(store.get()).toEqual(2);
+  });
+
+  it("should remove storage item", () => {
+    const initialValue = 1;
+    const store = customReastorage("test8", initialValue, {
+      compress: "utf-16",
+    });
+    expect(store.get()).toEqual(1);
+    store.set(2);
+    expect(store.get()).toEqual(2);
+
+    store.removeItem();
+    expect(store.get()).toEqual(undefined);
   });
 });
