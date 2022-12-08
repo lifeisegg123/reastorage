@@ -26,6 +26,10 @@ const setStorageItem = <T>(
   );
 };
 
+const removeStorageItem = (storage: Storage, key: string) => {
+  storage.removeItem(key);
+};
+
 export const reastorage = <T, A>(
   key: string,
   initialValue: T,
@@ -79,6 +83,10 @@ export const reastorage = <T, A>(
     };
   };
 
+  const removeItem = () => {
+    removeStorageItem(window[`${storage}Storage`], key);
+  };
+
   const actions = (() => {
     if (!storageActions) return undefined;
     return Object.fromEntries(
@@ -100,6 +108,7 @@ export const reastorage = <T, A>(
     reset,
     set,
     subscribe,
+    removeItem,
     actions: actions as ReturnType<ActionCreator<T, A>>,
     key,
   };
