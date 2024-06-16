@@ -3,12 +3,16 @@ import { Listener } from "./types/internal";
 import { handleCompress } from "./utils/handleCompress";
 import { DataOrUpdaterFn, isUpdaterFn } from "./utils/isUpdaterFn";
 
-const getStorageItem = (storage: Storage, key: string, compress: Compress) => {
+const getDeserializedValue = <T>(value:string,compress: Compress):T => {
+  return JSON.parse(
+    compress ? (handleCompress(compress, true)(value) as string) || value : value
+  );
+}
+
+const getStorageItem = <T>(storage: Storage, key: string, compress: Compress): T | null => {
   const item = storage.getItem(key);
   if (item) {
-    return JSON.parse(
-      compress ? (handleCompress(compress, true)(item) as string) || item : item
-    );
+    return getDeserializedValue(item, compress)
   }
   return null;
 };
@@ -45,7 +49,7 @@ export const reastorage = <T, A>(
     if (typeof window === "undefined") return initialValue;
     getInitial = true;
 
-    const targetValue = getStorageItem(
+    const targetValue = getStorageItem<T>(
       window[`${storage}Storage`],
       key,
       compress
@@ -72,9 +76,22 @@ export const reastorage = <T, A>(
   };
   const reset = () => set(initialValue);
 
+
+  const storageEventHandler  = (e:StorageEvent) => {
+    if(key !== e.key || e.newValue === null) return;
+    data = getDeserializedValue(e.newValue, compress);
+    listeners.forEach((cb) => cb(data));
+  }
+
   const subscribe = (listen: Listener<T>) => {
     listeners.add(listen);
+    if(listeners.size === 1) {
+      window.addEventListener("storage", storageEventHandler);
+    }
     return () => {
+      if(listeners.size === 1) {
+        window.removeEventListener("storage", storageEventHandler);
+      }
       listeners.delete(listen);
     };
   };
