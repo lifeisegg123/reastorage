@@ -3,6 +3,11 @@ import { ActionCreator, Compress, Options, ReastorageInterface } from "./types";
 import { handleCompress } from "./utils/handleCompress";
 import { DataOrUpdaterFn, isUpdaterFn } from "./utils/isUpdaterFn";
 
+/**
+ * 
+ * @deprecated this method is not ideal for this lib, because its focusing on handle local | session storage. 
+ * And  there's a lot of other tools that handle this functionality
+ */
 export const createCustomReastorage = (
   getItem: <T>(key: string) => T | undefined,
   setItem: <T>(key: string, value: T) => void
