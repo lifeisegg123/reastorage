@@ -7,9 +7,14 @@
   "module": "dist/index.mjs",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "default": "./dist/index.js"
+      "require": {
+        "default": "./dist/index.js",
+        "types": "./dist/index.d.ts"
+      },
+      "import": {
+        "default": "./dist/index.mjs",
+        "types":"./dist/index.d.mts"
+      }
     }
   },
   "files": [
@@ -39,8 +44,8 @@
     "state-management"
   ],
   "scripts": {
-    "build": "rollup -c ../../rollup.config.js",
-    "dev": "rollup -c ../../rollup.config.js -w",
+    "build": "tsup --config ../../tsup.config.ts",
+    "dev": "tsup --config ../../tsup.config.ts --watch",
     "test": "jest"
   },
   "devDependencies": {
