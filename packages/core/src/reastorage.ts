@@ -1,34 +1,45 @@
-import { ActionCreator, Compress, Options, ReastorageInterface } from "./types";
+import { ActionCreator, Compress, Options, ReastorageInterface, Serializer } from "./types";
 import { Listener } from "./types/internal";
 import { handleCompress } from "./utils/handleCompress";
 import { DataOrUpdaterFn, isUpdaterFn } from "./utils/isUpdaterFn";
 
-const getDeserializedValue = <T>(value:string,compress: Compress):T => {
-  return JSON.parse(
-    compress ? (handleCompress(compress, true)(value) as string) || value : value
-  );
+const DEFAULT_SERIALIZER = {
+  serialize: JSON.stringify,
+  deserialize: JSON.parse,
 }
 
-const getStorageItem = <T>(storage: Storage, key: string, compress: Compress): T | null => {
-  const item = storage.getItem(key);
-  if (item) {
-    return getDeserializedValue(item, compress)
+const createAccessor = <T>(compress: Compress, serializer: Serializer<T>) => {
+  const getDeserializedValue = (value:string):T => {
+    return serializer.deserialize(
+      compress ? (handleCompress(compress, true)(value) as string) || value : value
+    );
   }
-  return null;
-};
-
-const setStorageItem = <T>(
-  storage: Storage,
-  key: string,
-  value: T,
-  compress: Compress
-) => {
-  const item = JSON.stringify(value);
-  storage.setItem(
-    key,
-    compress ? (handleCompress(compress)(item) as string) : item
-  );
-};
+  
+  const getStorageItem = (storage: Storage, key: string): T | null => {
+    const item = storage.getItem(key);
+    if (item) {
+      return getDeserializedValue(item)
+    }
+    return null;
+  };
+  
+  const setStorageItem = (
+    storage: Storage,
+    key: string,
+    value: T
+  ) => {
+    const item = serializer.serialize(value);
+    storage.setItem(
+      key,
+      compress ? (handleCompress(compress)(item) as string) : item
+    );
+  };
+  return {
+    getDeserializedValue,
+    getStorageItem,
+    setStorageItem,
+  }
+}
 
 export const reastorage = <T, A>(
   key: string,
@@ -39,7 +50,9 @@ export const reastorage = <T, A>(
     storage = "local",
     compress = "default",
     actions: storageActions,
+    serializer = DEFAULT_SERIALIZER
   } = options || {};
+  const accessor = createAccessor(compress, serializer)
   let data = initialValue;
   let getInitial = false;
   let listeners = new Set<Listener<T>>();
@@ -49,13 +62,12 @@ export const reastorage = <T, A>(
     if (typeof window === "undefined") return initialValue;
     getInitial = true;
 
-    const targetValue = getStorageItem<T>(
+    const targetValue = accessor.getStorageItem(
       window[`${storage}Storage`],
       key,
-      compress
     );
     if (targetValue === null) {
-      setStorageItem(window[`${storage}Storage`], key, initialValue, compress);
+      accessor.setStorageItem(window[`${storage}Storage`], key, initialValue);
     } else {
       data = targetValue;
     }
@@ -70,7 +82,7 @@ export const reastorage = <T, A>(
       ? dataOrUpdater(data)
       : dataOrUpdater;
 
-    setStorageItem(window[`${storage}Storage`], key, value, compress);
+    accessor.setStorageItem(window[`${storage}Storage`], key, value);
     data = value;
     listeners.forEach((cb) => cb(value));
   };
@@ -79,7 +91,7 @@ export const reastorage = <T, A>(
 
   const storageEventHandler  = (e:StorageEvent) => {
     if(key !== e.key || e.newValue === null) return;
-    data = getDeserializedValue(e.newValue, compress);
+    data = accessor.getDeserializedValue(e.newValue);
     listeners.forEach((cb) => cb(data));
   }
 

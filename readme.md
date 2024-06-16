@@ -58,6 +58,10 @@ This is a function that provides global access to local or session storage.
     - **Optional** `ActionCreator`
     - Default is `undefined`
     - It takes function that update value with predefined actions.
+  - serializer
+    - **Optional** `Serializer<T>`
+    - Default is JSON.stringify and JSON.parse
+    - This option will be useful when you want to use your customized serializer.
 
 #### return
 

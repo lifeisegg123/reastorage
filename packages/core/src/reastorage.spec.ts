@@ -69,6 +69,14 @@ describe("reastorage", () => {
       store.set((v) => v * 2);
       expect(store.get()).toEqual(initialValue * 2);
     });
+
+    it("should work with custom serializer", () => {
+      const initialValue = 1;
+      const store = reastorage("test9", initialValue, { serializer:{ serialize: (v) => `test@@${v}`, deserialize: (v) => {console.log(v);return Number(v.replace('test@@',''))} } });
+      expect(store.get()).toEqual(initialValue);
+      store.set((v) => v * 2);
+      expect(store.get()).toEqual(initialValue * 2);
+    });
   });
 
   context("usage with actions", () => {
