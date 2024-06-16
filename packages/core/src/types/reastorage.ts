@@ -13,8 +13,14 @@ export interface ReastorageInterface<T, A> {
 
 export type Compress = "default" | "utf-16" | false;
 
+export type Serializer<T> = {
+  serialize: (value: T) => string;
+  deserialize: (value:string) => T;
+}
+
 export interface Options<T, A> {
   storage?: "local" | "session";
   compress?: Compress;
   actions?: ActionCreator<T, A>;
+  serializer?: Serializer<T>
 }
