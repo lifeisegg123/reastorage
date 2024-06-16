@@ -34,9 +34,8 @@
     "build": "ultra -r build",
     "dev": "ultra -r dev",
     "test": "ultra -r test",
-    "publish": "yarn build && lerna publish from-package --yes",
-    "version": "lerna version",
-    "postversion": "yarn"
+    "publish": "pnpm build && lerna publish from-package --yes",
+    "lerna:version": "lerna version"
   },
   "devDependencies": {
     "jest": "^29.0.3",
