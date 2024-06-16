@@ -18,13 +18,13 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16.x
-          cache: yarn
+          cache: pnpm
       - name: Install dependencies
-        run: yarn install --immutable
+        run: pnpm install
       - name: Build
-        run: yarn build
+        run: pnpm build
       - name: Test
-        run: yarn test
+        run: pnpm test
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v2
         with:

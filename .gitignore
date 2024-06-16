@@ -13,3 +13,5 @@ dist
 
 coverage
 .ultra.cache.json
+
+node_modules

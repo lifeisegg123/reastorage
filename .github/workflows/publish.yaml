@@ -14,13 +14,13 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16.x
-          cache: yarn
+          cache: pnpm
           registry-url: "https://registry.npmjs.org"
       - name: Install dependencies
-        run: yarn install --immutable
+        run: pnpm install
       - name: build
-        run: yarn build
+        run: pnpm build
       - name: Publish
-        run: yarn publish
+        run: pnpm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
