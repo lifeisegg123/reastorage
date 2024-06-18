@@ -10,7 +10,8 @@ import { DataOrUpdaterFn, isUpdaterFn } from "./utils/isUpdaterFn";
  */
 export const createCustomReastorage = (
   getItem: <T>(key: string) => T | undefined,
-  setItem: <T>(key: string, value: T) => void
+  setItem: <T>(key: string, value: T) => void,
+  remove: (key: string) => void
 ) => {
   const getStorageItem = <T>(key: string, compress: Compress) => {
     const item = getItem<T>(key);
@@ -25,6 +26,11 @@ export const createCustomReastorage = (
     const item = JSON.stringify(value);
     setItem(key, compress ? handleCompress(compress)(item) : item);
   };
+
+  const removeStorageItem = (key: string) => {
+    remove(key);
+  };
+
   return <U, A>(
     key: string,
     initialValue: U,
@@ -61,6 +67,10 @@ export const createCustomReastorage = (
 
     const reset = () => set(initialValue);
 
+    const removeItem = () => {
+      removeStorageItem(key);
+    };
+
     const subscribe = (listen: Listener<U>) => {
       listeners.add(listen);
       return () => {
@@ -89,6 +99,7 @@ export const createCustomReastorage = (
       reset,
       set,
       subscribe,
+      removeItem,
       actions: actions as ReturnType<ActionCreator<U, A>>,
       key,
     };
